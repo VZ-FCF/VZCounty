@@ -39,7 +39,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:2
-        }).fitBounds([[32.01482727772485,-96.13070443367258],[32.86208259772312,-95.22825208745013]]);
+        }).fitBounds([[32.21016303740875,-96.34497011646656],[33.055586236391626,-95.44251777024411]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -133,10 +133,10 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0, 
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
+                fillColor: 'rgba(255,255,255,0.0)',
                 interactive: false,
             }
         }
@@ -478,6 +478,9 @@
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="name" colspan="2"><strong>Cemetery Name</strong><br />' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="latitude" colspan="2"><strong>latitude</strong><br />' + (feature.properties['latitude'] !== null ? autolinker.link(String(feature.properties['latitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">source</th>\
